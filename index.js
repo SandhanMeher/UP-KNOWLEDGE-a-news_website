@@ -9,6 +9,7 @@ require("./model/connectionMongoDB");
 const { authenticateToken }=require("./middlewares/authenticateTheToken")
 const { signupRoute } = require("./routes/signup")
 const { signinRoute } = require("./routes/signin")
+const {getNewsData}=require("./routes/getNewsData")
 
 const app=express()
 app.use(cookieParser())
@@ -29,9 +30,15 @@ app.use(signupRoute)
 // signin route
 app.use(signinRoute)
 
+// middleware for check token
+// app.use(authenticateToken)
+
+// get news data
+app.use(getNewsData)
 
 
-app.use(authenticateToken)
+
+
 
 
 app.get("/logout",(req,res)=>{
