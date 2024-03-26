@@ -18,10 +18,6 @@ async function getNewsDataFromServer() {
           "flex" ,"justify-around" ,"gap-6" ,"bg-slate-300", "items-center" ,"px-2", "rounded-md" ,"py-3", "bg-opacity-90" ,"hover:bg-opacity-95"
         );
 
-        // const div3 = document.createElement("div");
-        // div3.classList.add(
-        //   "h-32", "w-32" ,"bg-[url('./img/img.jpg')]" ,"bg-cover"  ,"rounded-md"
-        // );
 
         const div4 = document.createElement("div");
         div4.classList.add("max-w-60");
@@ -40,18 +36,16 @@ async function getNewsDataFromServer() {
         //  ad4
         const h1=document.createElement("h2")
         h1.classList.add("font-bold");
-        h1.innerHTML="Title ......";
+        h1.innerHTML=a.title.substring(0,30) + "..";
         const p1=document.createElement("p");
-        p1.innerHTML=`Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos
-        odio corporis accusamus. Culpa commodi velit neque odit, nobis
-        delectus cum....`
+        p1.innerHTML=a.description.substring(0,125) +"...";
         div4.appendChild(h1);
         div4.appendChild(p1)
         // 
                               
         // ad2
         const img =document.createElement("img")
-        img.src="https://images.kbench.com/kbench/article/thumbnail/254185_thumb.jpg"
+        img.src=a.urlToImage;
 
         img.classList.add("h-32", "w-32","bg-cover","rounded-md")
 
@@ -95,6 +89,8 @@ async function getNewsDataFromServer() {
         const a5=document.createElement("a")
         a5.classList.add("bg-black" ,"text-white" ,"px-7", "py-2" ,"rounded-2xl", "outline" ,"outline-offset-0", "outline-cyan-100" ,"hover:bg-white", "mb-3", "hover:outline-cyan-950" ,"hover:text-black", "hover:font-bold")
         a5.innerHTML="Link &#8594;";
+        a5.href=a.url;
+        a5.target="_blank"
 
         div7.appendChild(a5)
 
