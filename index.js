@@ -31,7 +31,7 @@ app.use(signupRoute)
 app.use(signinRoute)
 
 // middleware for check token
-// app.use(authenticateToken)
+app.use(authenticateToken)
 
 // get news data
 app.use(getNewsData)

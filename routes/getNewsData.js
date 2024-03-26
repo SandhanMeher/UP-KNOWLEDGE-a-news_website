@@ -4,8 +4,9 @@ const getNewsData=express.Router();
 require("dotenv").config()
 
 getNewsData.get("/news",async (req,res)=>{
-    const topic="ai";
-    const totalPages=10;
+    const topic=req.query.topic;
+    console.log(topic)
+    const totalPages=50;
     const apikey=process.env.apikey;
 
     await fetch(
