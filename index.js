@@ -10,6 +10,9 @@ const { authenticateToken }=require("./middlewares/authenticateTheToken")
 const { signupRoute } = require("./routes/signup")
 const { signinRoute } = require("./routes/signin")
 const {getNewsData}=require("./routes/getNewsData")
+const {auth}=require("./handlers/auth")
+const{logoutRoute}=require("./routes/logout")
+
 
 const app=express()
 app.use(cookieParser())
@@ -19,9 +22,7 @@ app.use(express.urlencoded({
 }))
 
 
-app.get("/auth",(req,res)=>{
-    res.sendFile(path.join(__dirname,"views","auth.html"))
-})
+app.get("/auth",auth)
 
 
 // signup route
@@ -37,13 +38,10 @@ app.use(authenticateToken)
 app.use(getNewsData)
 
 
+// logout route
+app.use(logoutRoute)
 
 
-
-
-app.get("/logout",(req,res)=>{
-    res.clearCookie('token').send("logout")
-})
 
 app.get("/",(req,res)=>{
     res.sendFile(path.join(__dirname,"views","home.html"))
