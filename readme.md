@@ -23,10 +23,11 @@
 
 4. Install dependencies: `npm install`
 
+5. in terminal run `npm run dev`
 
-5. Set up environment variables (if required).
+6. Set up environment variables (if required).
 
-6. Start the development server:
+7. Start the development server:
 
 
 ## Usage
