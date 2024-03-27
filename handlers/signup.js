@@ -1,4 +1,5 @@
 const path=require("path")
+
 const jwt=require("jsonwebtoken")
 
 const {userCollection}=require("../model/user");
@@ -21,7 +22,7 @@ async function post_signup_async (req,res){
                 _id:JSON.stringify(z._id)
             },process.env.signature,{ expiresIn:'1h' })
 
-            res.cookie("token",token).send("created ..........")
+            res.cookie("token",token).redirect("/")
         }catch(er){
             console.log(er)
             if(er.code==11000){  
